@@ -9,7 +9,15 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
-            Console.WriteLine(productManager.GetAll().Count);
+
+            foreach (var product in productManager.GetProductDetails())
+            {
+                Console.WriteLine(product.ProductId + " / " +product.CategoryName
+                    + " / " + product.ProductName
+                    + " / " + product.UnitsInStock);
+            }
+
+
         }
     }
 }
