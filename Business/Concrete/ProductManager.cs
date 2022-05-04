@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Const;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,31 +22,35 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
+            if (product.ProductName.Length < 2)
+            {
+                return new ErrorResult(Messages.ProductNameInvalid);
+            }
             productDal.Add(product);
-            return new Result(true, "Ürün Eklendi");
+            return new SuccessResult(Messages.ProductAdded);
         }
 
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
             return productDal.GetAll();
         }
 
-        public List<Product> GetAllByCategoryId(int id)
+        public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Product GetById(int id)
+        public IDataResult<Product> GetById(int id)
         {
             return productDal.Get(p => p.ProductId == id);
         }
 
-        public List<Product> GetByUnitPrice(int min, int max)
+        public IDataResult<List<Product>> GetByUnitPrice(int min, int max)
         {
             throw new NotImplementedException();
         }
 
-        public List<ProductDetailDto> GetProductDetails()
+        public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
             return productDal.GetProductDetails();
         }
