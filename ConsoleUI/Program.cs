@@ -10,12 +10,19 @@ namespace ConsoleUI
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetProductDetails())
+            var result = productManager.GetAll();
+            
+            if (result.Success == true)
             {
-                Console.WriteLine(product.ProductId + " / " +product.CategoryName
-                    + " / " + product.ProductName
-                    + " / " + product.UnitsInStock);
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductId + ", " + product.ProductName + ", " + product.UnitPrice);
+                }
+            }else
+            {
+                Console.WriteLine(result.Message);
             }
+           
 
 
         }
