@@ -10,6 +10,7 @@ namespace Business.Const
         public static string ProductNameInvalid = "Ürün İsmi Geçersiz.";
         public static string MaintenanceTime = "Sistem Bakımda";
         public static string ProductsListed = "Ürünler başarıyla getirildi.";
+        public static string ProductListed = "Ürün başarıyla getirildi.";
         public static string ProductsListedByCategoryId = "Ürünler kategoriye göre getirildi.";
     }
 }
