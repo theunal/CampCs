@@ -33,8 +33,8 @@ namespace WebApi
             services.AddControllers();
 
             // product service dependency
-            services.AddSingleton<IProductService, ProductManager>();
-            services.AddSingleton<IProductDal, EfProductDal>();
+            //services.AddSingleton<IProductService, ProductManager>();
+            //services.AddSingleton<IProductDal, EfProductDal>();
 
 
 
