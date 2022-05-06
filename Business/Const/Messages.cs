@@ -14,6 +14,7 @@ namespace Business.Const
         public static string ProductsListedByCategoryId = "Ürünler kategoriye göre getirildi.";
 
         public static string CheckProductCountOfCategoryError = "Bu kategoride daha fazla ürün eklenemez.";
-        internal static string ProductNameAlreadyExists = "Bu ürün adına sahip ürün zaten mevcut.";
+        public static string ProductNameAlreadyExists = "Bu ürün adına sahip ürün zaten mevcut.";
+        public static string CategoryLimitExceeded = "Kategori sınırı aşıldı.";
     }
 }

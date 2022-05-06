@@ -20,10 +20,12 @@ namespace Business.Concrete
     {
 
         IProductDal productDal;
+        ICategoryService categoryService; // dalı değil sadece service i inject edebilirsin
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal, ICategoryService categoryService)
         {
             this.productDal = productDal;
+            this.categoryService = categoryService;
         }
 
 
@@ -35,7 +37,8 @@ namespace Business.Concrete
             // private business kurallarını business rules.run a gönderiyoruz
             var result = BusinessRules.Run(
                 CheckIfProductCountOfCategory(product.CategoryId),
-                CheckIfProductNameExists(product.ProductName));
+                CheckIfProductNameExists(product.ProductName),
+                CheckIfCategoryLimitExceeded());
 
             if (result == null)
             {
@@ -109,7 +112,18 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-       
+        private IResult CheckIfCategoryLimitExceeded()
+        {
+            var result = categoryService.GetAll();
+
+            if (result.Data.Count > 15)
+            {
+                return new ErrorResult(Messages.CategoryLimitExceeded);
+            }
+            return new SuccessResult();
+        }
+
+
 
 
 
