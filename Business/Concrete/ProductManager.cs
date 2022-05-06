@@ -20,10 +20,14 @@ namespace Business.Concrete
     {
 
         IProductDal productDal;
+
         public ProductManager(IProductDal productDal)
         {
             this.productDal = productDal;
         }
+
+
+
 
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
@@ -105,8 +109,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-
-
+       
 
 
 
