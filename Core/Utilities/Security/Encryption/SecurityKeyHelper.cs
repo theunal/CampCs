@@ -11,9 +11,7 @@ namespace Core.Utilities.Security.Encryption
         // gönderilen security keyi byte array haline getiriyor
         public static SecurityKey CreateSecurityKey(string securityKey)
         {
-
             return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
-
         }
 
 

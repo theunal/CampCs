@@ -11,11 +11,9 @@ namespace Core.Utilities.Security.Encryption
         // asp.net in kendi kullanacagı algoritmayı burda yazıyoruz
         public static SigningCredentials CreateSigningCredentials(SecurityKey securityKey)
         {
-
             return new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
-
         }
-
+           
 
 
         
