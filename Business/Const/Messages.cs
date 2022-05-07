@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+
+using Core.Entities.Concrete;
 
 namespace Business.Const
 {
@@ -16,5 +16,13 @@ namespace Business.Const
         public static string CheckProductCountOfCategoryError = "Bu kategoride daha fazla ürün eklenemez.";
         public static string ProductNameAlreadyExists = "Bu ürün adına sahip ürün zaten mevcut.";
         public static string CategoryLimitExceeded = "Kategori sınırı aşıldı.";
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+
+        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi.";
+        public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu.";
+        public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut.";
+        public static string SuccessfulLogin = "Giriş başarılı.";
+        public static string PasswordError = "Şifre hatalı.";
+        public static string UserNotFound = "Kullanıcı bulunamadı.";
     }
 }
