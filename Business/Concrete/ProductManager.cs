@@ -2,6 +2,7 @@
 using Business.BusinessAspects.Autofac;
 using Business.Const;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -30,6 +31,7 @@ namespace Business.Concrete
 
         [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
             // private business kurallarını business rules.run a gönderiyoruz
@@ -50,6 +52,7 @@ namespace Business.Concrete
 
         }
 
+        [CacheAspect]
         public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour == 18)
@@ -65,6 +68,8 @@ namespace Business.Concrete
                 (productDal.GetAll(p => p.CategoryId == id), Messages.ProductsListedByCategoryId);
         }
 
+
+        [CacheAspect]
         public IDataResult<Product> GetById(int id)
         {
             return new SuccessDataResult<Product>
@@ -83,6 +88,7 @@ namespace Business.Concrete
                 (productDal.GetProductDetails());
         }
 
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Update(Product product)
         {
             throw new NotImplementedException();
