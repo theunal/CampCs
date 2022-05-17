@@ -23,12 +23,8 @@ export class ProductComponent implements OnInit {
     this.httpClient
       .get<ProductResponseModel>(this.getall)
       .subscribe((result) => {
-
         this.products = result.data
-
-
       })
-
   }
 
 }
