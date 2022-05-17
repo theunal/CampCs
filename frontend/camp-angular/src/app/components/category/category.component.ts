@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { CategoryResponseModel } from './../../../models/categoryResponseModel';
 import { Category } from 'src/models/category';
+import { CategoryService } from './../../../services/category.service';
 
 @Component({
   selector: 'app-category',
@@ -10,18 +9,22 @@ import { Category } from 'src/models/category';
 })
 export class CategoryComponent implements OnInit {
 
-  getallUrl = "https://localhost:44339/api/Categories/getall"
-
+  
   categories : Category[] = []
+ 
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private categoryService : CategoryService) { }
+
+
 
   ngOnInit(): void {
-    this.httpClient
-      .get<CategoryResponseModel>(this.getallUrl)
-      .subscribe((result) => {
-        this.categories = result.data
-      })
+   this.getCategories()
+  }
+
+  getCategories() {
+    this.categoryService.getCategories().subscribe(result => {
+      this.categories = result.data
+    })
   }
 
 }
