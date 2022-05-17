@@ -40,6 +40,8 @@ namespace WebApi
         {
             services.AddControllers();
 
+            // cross origin
+            services.AddCors();
 
             // product service dependency autofac ile yaptýgýmýz için bunlarý kapattým
             //services.AddSingleton<IProductService, ProductManager>();
@@ -81,6 +83,11 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // cross origin
+            app.UseCors(p => 
+            p.WithOrigins("http://localhost:4200/")
+            .AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
