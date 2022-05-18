@@ -29,7 +29,6 @@ export class CategoryComponent implements OnInit {
 
   setCurrentCategory(category : Category) {
     this.currentCategory = category
-    console.log(category.categoryName)
   }
 
   getCurrentCategory(category : Category) {
@@ -38,6 +37,16 @@ export class CategoryComponent implements OnInit {
     }else
     return "list-group-item d-flex justify-content-between align-items-center"
   }
+
+  
+
+  setAllCategory() {
+
+
+    return "list-group-item d-flex justify-content-between align-items-center active"
+
+  }
+ 
 
 
 }

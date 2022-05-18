@@ -1,9 +1,22 @@
+
+
 <ul class="list-group">
+
+  <button class="btn" style="border-style:none;">
+    <li [class]="setAllCategory()" routerLink="/products">
+      Tüm Ürünler
+      <span class="badge bg-danger badge-pill">78</span>
+    </li>
+  </button>
+
+  <button class="btn" style="border-style:none;">
     <li [class]="getCurrentCategory(category)"
-    *ngFor="let category of categories"
-    routerLink = "/products/category/{{category.categoryId}}"
-    (click) = setCurrentCategory(category)>
+     *ngFor="let category of categories"
+      routerLink="/products/category/{{category.categoryId}}" (click)=setCurrentCategory(category)>
       {{category.categoryName}}
       <span class="badge bg-danger badge-pill">14</span>
     </li>
-  </ul>
+  </button>
+
+
+</ul>
