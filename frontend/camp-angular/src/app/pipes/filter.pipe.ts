@@ -6,14 +6,14 @@ import { Product } from './../../models/product';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: Product[], filterText : string): Product[] {
+  transform(value: Product[], filterText: string, status: boolean = false): Product[] {
 
     filterText = filterText ? filterText.toLocaleLowerCase() : ""
 
+
     return filterText ?
-    value.filter(p => p.productName.toLocaleLowerCase().indexOf(filterText) !== -1) : 
-    value
+      value.filter(p => p.productName.toLocaleLowerCase().indexOf(filterText) !== -1) :
+      value
 
   }
-
 }

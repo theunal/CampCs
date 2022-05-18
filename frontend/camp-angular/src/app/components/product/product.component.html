@@ -9,7 +9,7 @@
 
 <div class="mt-1">
   <input type="email" [(ngModel)] = "filterText" 
-   class="form-control w-50 mx-auto" id="filterText" placeholder="Aranacak ifade giriniz">
+   class="form-control w-50 mx-auto" id="filterText" placeholder="Ürün adı giriniz">
 </div>
 
 <table *ngIf="load == true" class="table table-striped table-bordered w-100 mx-auto mt-3">
@@ -21,6 +21,7 @@
       <th scope="col">Stok</th>
       <th scope="col">Price</th>
       <th scope="col">Price + %18 KDV</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +31,12 @@
       <td>{{ product.categoryId }}</td>
       <td>{{ product.unitsInStock }}</td>
       <td>{{ product.unitPrice |currency }}</td>
-      <td>{{ product.unitPrice |vatAdded:18 |currency }}</td>
+      <td>{{ product.unitPrice |vatAdded:18 |currency }}</td> 
+      <td>
+        <button (click)="addToCart(product)" class="btn btn-success">
+          <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+        </button>
+      </td>
     </tr>
   </tbody>
   <tfoot>
