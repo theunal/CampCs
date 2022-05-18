@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
  
 
   products : Product[] = []
+  load : boolean = false
  
 
   constructor(private productService : ProductService) { }
@@ -25,6 +26,7 @@ export class ProductComponent implements OnInit {
   getProducts() {
     this.productService.getProducts().subscribe(result => {
       this.products = result.data
+      this.load = true
     })
   }
 

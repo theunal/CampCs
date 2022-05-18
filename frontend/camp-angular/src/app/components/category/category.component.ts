@@ -11,10 +11,9 @@ export class CategoryComponent implements OnInit {
 
   
   categories : Category[] = []
+  currentCategory : Category
  
-
   constructor(private categoryService : CategoryService) { }
-
 
 
   ngOnInit(): void {
@@ -26,5 +25,19 @@ export class CategoryComponent implements OnInit {
       this.categories = result.data
     })
   }
+
+
+  setCurrentCategory(category : Category) {
+    this.currentCategory = category
+    console.log(category.categoryName)
+  }
+
+  getCurrentCategory(category : Category) {
+    if (category == this.currentCategory) {
+      return "list-group-item d-flex justify-content-between align-items-center active"
+    }else
+    return "list-group-item d-flex justify-content-between align-items-center"
+  }
+
 
 }

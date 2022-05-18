@@ -1,4 +1,12 @@
-<table class="table table-striped table-bordered w-100 mx-auto">
+
+
+
+<div *ngIf="load == false" class="d-flex align-items-center">
+  <div class="spinner-border mx-auto" style="margin-top: 250px;"  role="status" aria-hidden="true"></div>
+</div>
+
+
+<table *ngIf="load == true" class="table table-striped table-bordered w-100 mx-auto">
   <thead>
     <tr>
       <th scope="col">ID</th>
