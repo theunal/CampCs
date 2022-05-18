@@ -10,13 +10,13 @@ import { ProductService } from './../../../services/product.service';
 })
 export class ProductComponent implements OnInit {
 
- 
 
-  products : Product[] = []
-  load : boolean = false
- 
 
-  constructor(private productService : ProductService, private activedRoute : ActivatedRoute) { }
+  products: Product[] = []
+  load: boolean = false
+  filterText : string
+
+  constructor(private productService: ProductService, private activedRoute: ActivatedRoute) { }
 
 
 
@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
 
 
     })
-   
+
   }
 
   getProducts() {
@@ -41,7 +41,7 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  getProductsByCategoryId(categoryId : number) {
+  getProductsByCategoryId(categoryId: number) {
     this.productService.getProductsByCategoryId(categoryId).subscribe(result => {
       this.products = result.data
       this.load = true
