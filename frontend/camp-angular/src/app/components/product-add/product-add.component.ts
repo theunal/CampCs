@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { CategoryService } from 'src/services/category.service';
-import { ProductService } from 'src/services/product.service';
-import { Category } from './../../../models/category';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
+import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-product-add',

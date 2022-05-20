@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginModel } from 'src/models/loginModel';
-import { ResponseModel } from 'src/models/responseModel';
-import { SingleResponseModel } from 'src/models/singleResponseModel';
-import { TokenModel } from 'src/models/tokenModel';
+import { LoginModel } from 'src/app/models/loginModel';
+import { ResponseModel } from 'src/app/models/responseModel';
+import { SingleResponseModel } from 'src/app/models/singleResponseModel';
+import { TokenModel } from 'src/app/models/tokenModel';
 
 @Injectable({
   providedIn: 'root'

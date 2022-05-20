@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Product } from 'src/models/product';
-import { ProductService } from './../../../services/product.service';
-import { CartService } from './../../../services/cart.service';
+import { Product } from 'src/app/models/product';
+import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product',
