@@ -84,9 +84,10 @@ namespace WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.ConfigureCustomExceptionMiddleware();
+
             // cross origin
-            app.UseCors(p => 
-            p.WithOrigins("http://localhost:4200/")
+            app.UseCors(p => p.WithOrigins("http://localhost:4200/")
             .AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
