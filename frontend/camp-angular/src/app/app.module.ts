@@ -35,7 +35,8 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass : "toast-bottom-left"
+      positionClass : "toast-bottom-left",
+      extendedTimeOut : 10000,
     })
   ],
   providers: [],

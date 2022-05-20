@@ -11,10 +11,10 @@ namespace Business.ValidationRules.FluentValidation
         public ProductValidator()
         {
             // product kuralları
-            RuleFor(p => p.ProductName).NotEmpty().WithMessage("Ürün ismi boş geçilemez");
-            RuleFor(p => p.ProductName).MinimumLength(2).WithMessage("Ürün ismi en az 2 karakter olmalıdır");
-            RuleFor(p => p.UnitPrice).NotEmpty().WithMessage("Ürün fiyatı boş geçilemez");
-            RuleFor(p => p.UnitPrice).GreaterThanOrEqualTo(10).When(p => p.CategoryId == 1).WithMessage("Ürün fiyatı 10'dan büyük olmalıdır");
+            RuleFor(p => p.ProductName).NotEmpty().WithMessage("Ürün ismi boş geçilemez.");
+            RuleFor(p => p.ProductName).MinimumLength(2).WithMessage("Ürün ismi en az 2 karakter olmalıdır.");
+            RuleFor(p => p.UnitPrice).NotEmpty().WithMessage("Ürün fiyatı boş geçilemez.");
+            RuleFor(p => p.UnitPrice).GreaterThanOrEqualTo(10).WithMessage("Ürün fiyatı 10 değerine eşit veya daha büyük olmalıdır.");
          
   
         
