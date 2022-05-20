@@ -52,11 +52,10 @@ export class ProductAddComponent implements OnInit {
     if (this.productAddForm.valid) {
       let product = Object.assign({}, this.productAddForm.value)
       this.productService.productAdd(product).subscribe(response => {
-        console.log(response)
         this.toastrService.success(response.message, product.productName)
       }, responseError => {
-        if(responseError.error.Errors.length > 0) {
-          for (let i = 0; i < responseError.error.Errors.length; i++) {
+        if(responseError.error.Errors?.length > 0) {
+          for (let i = 0; i < responseError.error.Errors?.length; i++) {
             this.toastrService.error(responseError.error.Errors[i].ErrorMessage)
           }
         }
